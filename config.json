@@ -2,11 +2,7 @@
   "base_url": "https://redeanalise.netlify.app",
   "site_title": "Rede Análise COVID-19",
   "site_description": "Rede nacional de pesquisadores voluntários para o enfrentamento da COVID-19",
-  "site_keywords": [
-    "COVID-19",
-    "pesquisa",
-    "divulgação científica"
-  ],
+  "site_keywords": ["COVID-19", "pesquisa", "divulgação", "científica"],
   "posts_per_page": 5,
   "twitter_account": "@analise_covid19",
   "github_account": "frontendwizard"
