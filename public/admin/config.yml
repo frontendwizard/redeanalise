@@ -118,6 +118,7 @@ collections:
           label: Author
           name: "author"
           collection: "meta"
+          widget: relation
           file: "authors"
           searchFields:
             - "authors.*.name"
@@ -132,6 +133,7 @@ collections:
           label: Reviewer
           name: "reviewer"
           collection: "meta"
+          widget: relation
           file: "authors"
           searchFields:
             - "authors.*.name"
