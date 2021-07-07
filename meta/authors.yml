@@ -1,6 +1,16 @@
 authors:
-  - slug: wutali
-    name: Takahiro Fujiwara
-    introduction:
-      Co-founder and CTO at Fuller, Inc. / Software & Data Engineer /
-      Python / Golang / React
+  - name: Isaac Schrarstzhaupt
+    slug: schrarstzhaupt
+    introduction: Placeholder introduction
+  - name: Mateus Falco
+    slug: mateuslfalco
+    introduction: Placeholder introduction
+  - name: Marcelo Bragatte
+    slug: marcelobragatte
+    introduction: Placeholder introduction
+  - name: Miguel Angel Buelta Martinez
+    slug: Martine44528723
+    introduction: Placeholder introduction
+  - name: Mellanie Fontes-Dutra
+    slug: mellziland
+    introduction: Placeholder introduction
