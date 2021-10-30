@@ -1,0 +1,125 @@
+---
+slug: o-historico-e-situacao-atual-de-obitos-por-covid-19-no-brasil
+title: O Histórico E Situação Atual De Óbitos Por COVID-19 No Brasil
+date: 2020-10-26
+authors:
+  - Martine44528723
+reviewers:
+  - schrarstzhaupt
+  - marcelobragatte
+tags:
+  - covid-19
+---
+Nesta análise é feito o histórico e analisada a situação atual da pandemia por COVID-19 no Brasil, verificando-se o comportamento desses óbitos diários notificados e o que poderiam ser os números reais de óbitos totais, caso a subnotificação desses números, já mostrada em outras análises, pudesse ser dimensionada.
+
+**Os números de óbitos por COVID-19, diários ou totais acumulados, constantes dos gráficos e tabelas correspondem à média móvel de sete dias, onde o dia considerado está no meio desses sete dias**. São utilizados os valores de óbitos por COVID-19 notificados até 22/10/2020 e os óbitos por SRAG notificados até 19/10/2020.
+
+Todos os números são aqueles fornecidos pelo Ministério da Saúde. No que diz respeito aos números de óbitos, a análise está baseada na metodologia apresentada no trabalho anterior resumido a seguir:
+
+[Nessa análise](https://redeaanalisecovid.wordpress.com/2020/07/07/exemplos-de-analise-da-possibilidade-de-existirem-mais-obitos-por-covid-19-em-2020/) mostra-se o grande aumento de óbitos por SRAG em 2020, em relação aos anos anteriores, no qual uma parcela significativa não foi identificada como sendo causada por COVID-19.
+
+A partir daí decide-se acrescentar aos óbitos oficialmente notificados por COVID-19 (N_COVID), aqueles óbitos devido ao SRAG (N_SRAG), a cada dia, onde não houve confirmação para COVID-19, retirando ainda os óbitos por SRAG em 2019, quando não existia esta pandemia, tomados como base.
+
+Para N_SRAG utiliza-se a expressão:
+
+N_SRAG = N_SRAG2020  – N_SRAG2019  –  N_COVID SRAG2020
+
+Onde:
+
+– N_SRAG2020 : óbitos por SRAG em 2020.
+
+– N_SRAG2019 : óbitos por SRAG em 2019.
+
+– N_COVID SRAG2020 :   óbitos por SRAG em 2020, identificados como sendo causada por COVID-19.
+
+Portanto, o número de óbitos por COVID-19, passa as ser adotado como:
+
+ÓBITOS POR COVID-19 = N_SRAG + N_COVID
+
+São utilizados os conceitos do trabalho citado e estimando qual poderia ser esse número real de óbitos por COVID-19, segundo as hipóteses que são feitas nessa análise anterior.
+
+**Óbitos Notificados no Brasil**
+
+O início do período para contagem dos óbitos se dá quando foram acumulados cinco óbitos notificados por COVID-19. No Brasil isso ocorreu em 18/03/2020. Na figura abaixo nota-se que houve um crescimento da média móvel do número de óbitos notificados, até atingir um patamar no início de junho, que se manteve por praticamente 80 dias, com uma média geral acima de 1000 óbitos/dia. A partir daí tem ocorrido uma diminuição nessa média móvel.
+
+Período considerado (18/03 a 19/10)
+
+![](https://redeaanalisecovid.files.wordpress.com/2020/10/image.png?w=559)
+
+Há dez dias tem-se uma média diária de óbitos n**otificados girando em torno de 500 óbitos/dia, mas não está claro ainda se estamos entrando em um novo patamar.**
+
+Complementando, na figura 2, a seguir, apresenta-se a curva dos óbitos totais notificados, onde a influência dessa descontinuidade na notificação é notada.
+
+Período considerado (18/03 a 19/10)
+
+![](https://redeaanalisecovid.files.wordpress.com/2020/10/image-1.png?w=567)
+
+**Tomando como base o momento atual da pandemia no Brasil, para os países com população acima de 40 milhões de habitantes, a Espanha e o Brasil têm o maior número total de óbitos por COVID-19 notificados, por milhão de habitantes** (1)**.**
+
+* Our Word in Data (<https://ourworldindata.org/coronavirus>)
+
+**A Situação Atual do Brasil**
+
+Introduzindo a questão adicional dos óbitos por SRAG (2), no gráfico a seguir são mostradas as médias de óbitos diários por SRAG (N_SRAG , da expressão (1) do capítulo 1), que seriam os óbitos que poderiam ser por COVID-19, mas que não foram notificados como tal.
+
+Os dados de SRAG, e os óbitos de SRAG com COVID-19 (N_COVID SRAG2020 ), são fornecidos por data do óbito, e vão sendo atualizados ao longo do tempo, corrigindo-se os valores das datas anteriores, quando se tem a confirmação de que o óbito foi por COVID-19. A análise dos dados fornecidos ao longo do tempo mostrou serem necessários de 30 a 60 dias para ser feita uma atualização aceitável. Já os óbitos diários por COVID-19 notificados pelo Ministério da Saúde (N_COVID) não são atualizados. Quando se recebe a confirmação de COVID-19, para um óbito do passado, esse óbito é colocado na data dessa confirmação.
+
+O gráfico é elaborado com os dados de óbitos por SRAG notificados até 19/10/2020. Note-se uma queda ao final, pois correspondem a datas ainda não atualizadas.
+
+Quando um óbito antigo por SRAG é confirmado como COVID-19, a base de dados de SRAG é atualizada retroativamente e este óbito é removido, portanto, não há chance de termos o mesmo óbito duas vezes (uma em SRAG antigo e outra em COVID-19 após a confirmação).
+
+Período considerado (18/03 a 16/10)
+
+![](https://redeaanalisecovid.files.wordpress.com/2020/10/image-2.png?w=567)
+
+**Notar que no início da pandemia, muitos óbitos podem ter sido por COVID-19, e não foram notificados como tal. Muito mais até do que aqueles que foram notificados pelo Ministério da Saúde. Ex: no dia 08/05/2020 a média de 510 óbitos/dia poderiam ter sido acrescidos à média de 600 óbitos/dia que foram oficialmente notificados.**
+
+* Agradecimento ao grupo Foco no COVID ( <https://www.foconocovid.com/> ) que forneceu as tabelas de SRAG de 2020 e 2019, devidamente interpretadas, facilitando em muito esta análise.
+
+No próximo gráfico são agrupados os óbitos diários notificados, conforme:
+
+\-Curva azul: óbitos diários por COVID-19 notificados pelo Ministério da Saúde (N_COVID).
+
+\-Curva amarela: óbitos por SRAG em 2020, identificados como sendo causada por COVID-19 (N_COVID SRAG2020).
+
+Período considerado (18/03 a 16/10)
+
+![](https://redeaanalisecovid.files.wordpress.com/2020/10/image-3.png?w=567)
+
+**Notar que até o dia 31/05/2020 havia uma inconsistência nas notificações.** Osóbitos diários por SRAG em 2020, identificados como sendo causada por COVID-19 (N_COVID SRAG2020), notificados em um sistema de dados, não poderiam ser maiores que os próprios óbitos diários por COVID-19 notificados pelo Ministério da Saúde (N_COVID). Isso se deve, em parte, à diferença de critério no fornecimento dos dados de SRAG e de óbitos por COVID19, destacada no início deste capítulo. Há uma defasagem de data entre esses dois bancos de dados. No entanto, verifica-se mesmo assim, como será melhor analisado a seguir, que esses óbitos por SRAG com COVID, em boa parte ficaram para trás, daí a necessidade de se tentar estimar qual poderia ser o número real de óbitos por COVID-19 até o momento.
+
+De modo a melhor analisar o que ocorreu, a seguir outro gráfico é apresentado, onde são agrupados os óbitos diários notificados, conforme:
+
+\-Curva azul: óbitos diários por COVID-19 notificados pelo Ministério da Saúde (N_COVID).
+
+\-Curva verde: óbitos por SRAG (N_SRAG , da expressão (1), capítulo 1), que seriam os óbitos que poderiam ser por COVID-19, ainda não notificados como tal.
+
+– Curva laranja: óbitos diários por COVID-19 notificados (N_COVID), acrescidos dos óbitos por SRAG que possivelmente também eram devidos à COVID-19 (N_SRAG), como mostrado na expressão (2), capítulo 1).
+
+Período considerado (18/03 a 16/10)
+
+![](https://redeaanalisecovid.files.wordpress.com/2020/10/image-4.png?w=567)
+
+Notar que no início do período o N_SRAG  (curva verde), que seriam os óbitos diários que poderiam ser por COVID-19, não notificados como tal, também aqui eram bem superiores aos óbitos notificados por COVID-19 (N_COVID, curva azul). Isso só se inverteu a partir 05/05. O valor real da média desses óbitos diários corresponderia aos ÓBITOS POR COVID-19 diários (curva laranja), adicionando as duas curvas. Pode haver, portanto, uma subnotificação dos óbitos totais por COVID-19 acumulada, o que será analisada no próximo capítulo.
+
+**Óbitos Totais por COVID-19 no Brasil**
+
+No gráfico que segue são mostrados os números de óbitos totais acumulados, seguindo a mesma nomenclatura e cores da figura 5 do capítulo anterior.
+
+Período considerado (18/03 a 16/10)
+
+![](https://redeaanalisecovid.files.wordpress.com/2020/10/image-5.png?w=567)
+
+Como já esperado pela análise dos capítulos anteriores, há uma grande diferença entre os óbitos totais por COVID-19 notificados pelo Ministério da Saúde (curva azul) e os óbitos que poderiam ter sido notificados (curva laranja), segundo as hipóteses desta análise, devido ao excedente de óbitos por SRAG não identificada como sendo causada por COVID-19, lá no começo da pandemia.
+
+**Portanto, utilizando os números obtidos, no dia 16/10 poderiam ter sido notificados para o Brasil 1,45 vezes o número de óbitos totais por COVID-19, notificados pelo Ministério da Saúde. Dado o atraso dos dados de SRAG, se retrocedemos 30 dias, esse fator passa para 1,48, que deve ser mais adequado, para se obter o possível número real. (Exemplo: em 22/10/2020 ter-se-ia 230.800 óbitos acumulados contra os 155.900 notificados).**
+
+**Conclusões Principais**
+
+**Tomando como base o momento atual da pandemia no Brasil, para os países com população acima de 40 milhões de habitantes, a Espanha e o Brasil têm o maior número total de óbitos por COVID-19 notificados, por milhão de habitantes.**
+
+**No início da pandemia, muitos óbitos podem ter sido por COVID-19, e não foram notificados como tal.** Muito mais até do que aqueles que foram notificados pelo Ministério da Saúde. Ex: no dia 08/05/2020 a média de 510 óbitos/dia poderiam ter sido acrescidos à média de 600 óbitos/dia que foram oficialmente notificados. **Os óbitos diários por SRAG em 2020, identificados como sendo causada por COVID-19 (N_COVID SRAG2020), notificados em um sistema de dados, até o final de maio eram até maiores que os próprios óbitos diários por COVID-19 notificados pelo Ministério da Saúde (N_COVID).** As correções feitas ao longo do tempo foram insuficientes, por ora, para corrigir isso.
+
+A subnotificação de óbitos por COVID-19, identificada, faz com que esse **número total para o Brasil possa ser neste momento 1,48 vezes o número de óbitos notificados pelo Ministério da Saúde. Isto corresponde, praticamente, a 50% de subnotificação de óbitos.**
+
+**É possível que essa subnotificação venha a ser corrigida caso consigam uma confirmação efetiva de cada caso de SRAG que na verdade era COVID-19, mas isso é improvável devido à quantidade diária de registros e à continuidade da epidemia, impedindo os esforços de identificação. Por isso a importância de entendermos o real impacto da epidemia no número de óbitos.**
