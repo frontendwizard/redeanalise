@@ -11,11 +11,7 @@ import NextImage from 'next/image'
 import NextLink from 'next/link'
 import { PostContent } from '../lib/posts'
 
-export const BlogPostCard = ({
-  postContent = {},
-}: {
-  postContent: PostContent
-}) => (
+export const BlogPostCard = ({ postContent }: { postContent: PostContent }) => (
   <LinkBox
     as="article"
     display={{ base: 'block', lg: 'flex' }}
