@@ -12,10 +12,8 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import NextImage from 'next/image'
-import { Footer } from '../components/Footer'
-import { Navbar } from '../components/Navbar'
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -25,6 +23,7 @@ import {
 import { Section } from '../components/Section'
 import { MostReadItem } from '../components/MostReadItem'
 import Layout from '../components/Layout'
+import { listPostContent, PostContent } from '../lib/posts'
 
 const BlogTags = ({ tags }: { tags: string[] }) => {
   return (
@@ -48,7 +47,11 @@ const BlogTags = ({ tags }: { tags: string[] }) => {
   )
 }
 
-const Post: NextPage = () => {
+interface PostProps {
+  lastPosts: PostContent[]
+}
+
+const Post: NextPage<PostProps> = ({ lastPosts }) => {
   return (
     <Layout>
       <Box h="250px" pos="relative" w="full">
@@ -391,14 +394,22 @@ const Post: NextPage = () => {
       </Section>
       <Section title="Posts Relacionados" bg="laranja.500">
         <VStack>
-          <MostReadItem />
-          <MostReadItem />
-          <MostReadItem />
-          <MostReadItem />
+          {lastPosts.map((postContent) => (
+            <MostReadItem key={postContent.slug} postContent={postContent} />
+          ))}
         </VStack>
       </Section>
     </Layout>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const lastPosts = listPostContent(1, 5)
+  return {
+    props: {
+      lastPosts,
+    },
+  }
 }
 
 export default Post
