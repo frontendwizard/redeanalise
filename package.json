@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-on-netlify",
     "start": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "export": "next build && next export -o ./dist",
+    "postexport": "next-on-netlify",
     "test": "jest",
     "lint": "next lint --fix --dir src",
     "prepare": "husky install",
