@@ -28,7 +28,6 @@ export default function PostLayout({
   date,
   slug,
   authors,
-  reviewers,
   tags,
   description = '',
   children,
@@ -43,8 +42,16 @@ export default function PostLayout({
         keywords={keywords}
         description={description}
       />
-      <TwitterCardMeta url={`/posts/${slug}`} title={title} description={description} />
-      <OpenGraphMeta url={`/posts/${slug}`} title={title} description={description} />
+      <TwitterCardMeta
+        url={`/posts/${slug}`}
+        title={title}
+        description={description}
+      />
+      <OpenGraphMeta
+        url={`/posts/${slug}`}
+        title={title}
+        description={description}
+      />
       <JsonLdMeta
         url={`/posts/${slug}`}
         title={title}
@@ -212,7 +219,10 @@ export default function PostLayout({
           }
 
           .language-html .token.tag .token.attr-value,
-          .language-html .token.tag .token.attr-value .token.punctuation:not(:first-child) {
+          .language-html
+            .token.tag
+            .token.attr-value
+            .token.punctuation:not(:first-child) {
             color: #032f62;
           }
 

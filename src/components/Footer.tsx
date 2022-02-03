@@ -107,7 +107,13 @@ export const Footer = () => (
           </Stack>
         </SimpleGrid>
         <Text fontSize="x-small" textAlign="center">
-          © 2021 Rede Análise. Todos os direitos reservados. Feito com ❤️ por{' '}
+          © 2021 Rede Análise. Todos os direitos reservados.
+          <br />
+          Feito com{' '}
+          <Text as="span" role="img" mr={1} aria-label="amor">
+            ❤️{' '}
+          </Text>
+          {` por `}
           <Link isExternal href={`https://twitter.com/frontendwizard`}>
             @frontendwizard
           </Link>

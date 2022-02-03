@@ -10,7 +10,8 @@
     "export": "next build && next export -o ./dist",
     "test": "jest",
     "lint": "next lint --fix --dir src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "prettier ./src --write"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.15",

@@ -31,7 +31,9 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
         link={{
           href: () => '/posts/tags/[[...slug]]',
           as: (page) =>
-            page === 1 ? '/posts/tags/' + tag.slug : `/posts/tags/${tag.slug}/${page}`,
+            page === 1
+              ? '/posts/tags/' + tag.slug
+              : `/posts/tags/${tag.slug}/${page}`,
         }}
       />
       <style jsx>

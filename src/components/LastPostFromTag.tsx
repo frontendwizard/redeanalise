@@ -1,4 +1,4 @@
-import { Button, Flex, SimpleGrid, Stack } from '@chakra-ui/react'
+import { Button, Flex, SimpleGrid } from '@chakra-ui/react'
 import { ComponentProps } from 'react'
 import { PostContent } from '../lib/posts'
 import { BlogPostCard } from './BlogPostCard'

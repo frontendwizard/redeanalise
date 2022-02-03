@@ -8,11 +8,22 @@ type Props = {
   author?: string
   url: string
 }
-export default function BasicMeta({ title, description, keywords, author, url }: Props) {
+export default function BasicMeta({
+  title,
+  description,
+  keywords,
+  author,
+  url,
+}: Props) {
   return (
     <Head>
-      <title>{title ? [title, config.site_title].join(' | ') : config.site_title}</title>
-      <meta name="description" content={description ? description : config.site_description} />
+      <title>
+        {title ? [title, config.site_title].join(' | ') : config.site_title}
+      </title>
+      <meta
+        name="description"
+        content={description ? description : config.site_description}
+      />
       <meta
         name="keywords"
         content={keywords ? keywords.join(',') : config.site_keywords.join(',')}

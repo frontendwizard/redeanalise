@@ -28,7 +28,12 @@ const Equipe: NextPage = () => {
           overflowX="hidden"
         >
           <Center>
-            <BrokenTagsIcon boxSize={80} color="violeta.500" pos="relative" right={-100} />
+            <BrokenTagsIcon
+              boxSize={80}
+              color="violeta.500"
+              pos="relative"
+              right={-100}
+            />
           </Center>
         </Box>
         <Box pos="absolute" bottom={4} left={10} zIndex={2}>

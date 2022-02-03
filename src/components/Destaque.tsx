@@ -1,4 +1,12 @@
-import { Box, VStack, Heading, Text, Divider, Flex, Image } from '@chakra-ui/react'
+import {
+  Box,
+  VStack,
+  Heading,
+  Text,
+  Divider,
+  Flex,
+  Image,
+} from '@chakra-ui/react'
 
 const Destaque = () => {
   return (
@@ -16,11 +24,18 @@ const Destaque = () => {
           Destaque
         </Text>
         <Heading fontWeight="semibold">
-          Caranguejo-ferradura, Sangue Azul, Ameaça de Extinção, Vacinas, Dependência dos Recursos
-          Naturais e Pandemia da COVID-19
+          Caranguejo-ferradura, Sangue Azul, Ameaça de Extinção, Vacinas,
+          Dependência dos Recursos Naturais e Pandemia da COVID-19
         </Heading>
-        <Divider borderColor="white" borderBottomWidth="medium" opacity="1" w="24" />
-        <Text fontWeight="normal">Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
+        <Divider
+          borderColor="white"
+          borderBottomWidth="medium"
+          opacity="1"
+          w="24"
+        />
+        <Text fontWeight="normal">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </Text>
         <Flex justify="space-between" w="full" fontSize="sm" fontWeight="bold">
           <Text>12.08.2021</Text>
           <Text>Por: Rute Gonçalves-de-Andrade</Text>

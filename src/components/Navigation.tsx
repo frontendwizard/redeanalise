@@ -28,7 +28,11 @@ export default function Navigation() {
             <Link href="/">Rede Análise | Covid-19</Link>
           </Text>
           <Button onClick={handleClick} variant="ghost">
-            {isOpen ? <XIcon className="w-6 h-6" /> : <MenuAlt4Icon className="w-6 h-6" />}
+            {isOpen ? (
+              <XIcon className="w-6 h-6" />
+            ) : (
+              <MenuAlt4Icon className="w-6 h-6" />
+            )}
           </Button>
         </Flex>
         <Collapse in={isOpen}>
