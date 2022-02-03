@@ -18,8 +18,8 @@ type Props = {
   date: Date
   slug: string
   tags: string[]
-  authors: string[]
-  reviewers: string[]
+  authors?: string[]
+  reviewers?: string[]
   description?: string
   children: React.ReactNode
 }
@@ -33,7 +33,7 @@ export default function PostLayout({
   children,
 }: Props) {
   const keywords = tags.map((it) => getTag(it).name)
-  const authorName = getAuthor(authors[0]).name
+  const authorName = authors ? getAuthor(authors[0]).name : ''
   return (
     <Layout>
       <BasicMeta
@@ -69,7 +69,7 @@ export default function PostLayout({
                 <Date date={date} />
               </div>
               <div>
-                {authors.map((author) => (
+                {authors?.map((author) => (
                   <Author key={author} author={getAuthor(author)} />
                 ))}
               </div>

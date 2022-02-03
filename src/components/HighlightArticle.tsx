@@ -43,7 +43,9 @@ const MobileArticle = ({ postContent }: HighlightArticleProps) => {
           <Box flex="1">
             <Text>{postContent.date}</Text>
           </Box>
-          <Text>Por: {postContent.authors[0]}</Text>
+          {postContent.authors ? (
+            <Text>Por: {postContent.authors[0]}</Text>
+          ) : null}
         </Flex>
       </Stack>
     </Box>
@@ -81,7 +83,9 @@ const DesktopArticle = ({ postContent }: HighlightArticleProps) => {
             <Box flex="1">
               <Text>{postContent.date}</Text>
             </Box>
-            <Text>Por: {postContent.authors[0]}</Text>
+            {postContent.authors ? (
+              <Text>Por: {postContent.authors[0]}</Text>
+            ) : null}
           </Flex>
           <NextLink href="/post" passHref>
             <Button as="a" variant="outline" colorScheme="white">
