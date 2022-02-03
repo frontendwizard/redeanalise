@@ -110,9 +110,9 @@ export const Footer = () => (
           © 2021 Rede Análise. Todos os direitos reservados.
           <br />
           Feito com{' '}
-          <Text as="span" role="img" mr={1} aria-label="amor">
+          <span role="img" style={{ marginRight: '4px' }} aria-label="amor">
             ❤️{' '}
-          </Text>
+          </span>
           {` por `}
           <Link isExternal href={`https://twitter.com/frontendwizard`}>
             @frontendwizard
