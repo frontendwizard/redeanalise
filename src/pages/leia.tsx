@@ -8,16 +8,15 @@ import {
   Heading,
   Stack,
 } from '@chakra-ui/react'
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import { useState } from 'react'
 import { ArrowRightIcon } from '../components/icons/ArrowRightIcon'
 import { BlogPostCard } from '../components/BlogPostCard'
 import { EyeIcon } from '../components/icons/EyeIcon'
-import { Footer } from '../components/Footer'
-import { Navbar } from '../components/Navbar'
 import { SocialSection } from '../components/SocialSection'
 import { ZapIcon } from '../components/icons/ZapIcon'
 import Layout from '../components/Layout'
+import { listPostContent, PostContent } from '../lib/posts'
 
 const PaginationButton = (props: ButtonProps) => (
   <Button
@@ -56,7 +55,11 @@ const Pagination = () => {
   )
 }
 
-const Leia: NextPage = () => {
+interface LeiaProps {
+  lastPosts: PostContent[]
+}
+
+const Leia: NextPage<LeiaProps> = ({ lastPosts }) => {
   return (
     <Layout>
       <Flex py={20} px={6} bg="laranja.500" pos="relative">
@@ -91,16 +94,23 @@ const Leia: NextPage = () => {
         </Button>
       </Flex>
       <Stack spacing="4" px={6} bg="bege" pb={6}>
-        <BlogPostCard />
-        <BlogPostCard />
-        <BlogPostCard />
-        <BlogPostCard />
-        <BlogPostCard />
+        {lastPosts.map((postContent) => (
+          <BlogPostCard key={postContent.slug} postContent={postContent} />
+        ))}
         <Pagination />
       </Stack>
       <SocialSection bg="laranja.500" />
     </Layout>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const lastPosts = listPostContent(1, 10)
+  return {
+    props: {
+      lastPosts,
+    },
+  }
 }
 
 export default Leia
