@@ -1,28 +1,28 @@
-import React from "react";
-import styles from "../../public/styles/content.module.css";
-import Author from "./Author";
-import Copyright from "./Copyright";
-import Date from "./Date";
-import Layout from "./Layout";
-import BasicMeta from "./meta/BasicMeta";
-import JsonLdMeta from "./meta/JsonLdMeta";
-import OpenGraphMeta from "./meta/OpenGraphMeta";
-import TwitterCardMeta from "./meta/TwitterCardMeta";
-import { SocialList } from "./SocialList";
-import TagButton from "./TagButton";
-import { getAuthor } from "../lib/authors";
-import { getTag } from "../lib/tags";
+import React from 'react'
+import styles from '../../public/styles/content.module.css'
+import Author from './Author'
+import Copyright from './Copyright'
+import Date from './Date'
+import Layout from './Layout'
+import BasicMeta from './meta/BasicMeta'
+import JsonLdMeta from './meta/JsonLdMeta'
+import OpenGraphMeta from './meta/OpenGraphMeta'
+import TwitterCardMeta from './meta/TwitterCardMeta'
+import { SocialList } from './SocialList'
+import TagButton from './TagButton'
+import { getAuthor } from '../lib/authors'
+import { getTag } from '../lib/tags'
 
 type Props = {
-  title: string;
-  date: Date;
-  slug: string;
-  tags: string[];
-  authors: string[];
-  reviewers: string[];
-  description?: string;
-  children: React.ReactNode;
-};
+  title: string
+  date: Date
+  slug: string
+  tags: string[]
+  authors: string[]
+  reviewers: string[]
+  description?: string
+  children: React.ReactNode
+}
 export default function PostLayout({
   title,
   date,
@@ -30,11 +30,11 @@ export default function PostLayout({
   authors,
   reviewers,
   tags,
-  description = "",
+  description = '',
   children,
 }: Props) {
-  const keywords = tags.map((it) => getTag(it).name);
-  const authorName = getAuthor(authors[0]).name;
+  const keywords = tags.map((it) => getTag(it).name)
+  const authorName = getAuthor(authors[0]).name
   return (
     <Layout>
       <BasicMeta
@@ -43,16 +43,8 @@ export default function PostLayout({
         keywords={keywords}
         description={description}
       />
-      <TwitterCardMeta
-        url={`/posts/${slug}`}
-        title={title}
-        description={description}
-      />
-      <OpenGraphMeta
-        url={`/posts/${slug}`}
-        title={title}
-        description={description}
-      />
+      <TwitterCardMeta url={`/posts/${slug}`} title={title} description={description} />
+      <OpenGraphMeta url={`/posts/${slug}`} title={title} description={description} />
       <JsonLdMeta
         url={`/posts/${slug}`}
         title={title}
@@ -61,11 +53,11 @@ export default function PostLayout({
         author={authorName}
         description={description}
       />
-      <div className={"container"}>
+      <div className={'container'}>
         <article>
           <header>
             <h1>{title}</h1>
-            <div className={"metadata"}>
+            <div className={'metadata'}>
               <div>
                 <Date date={date} />
               </div>
@@ -77,7 +69,7 @@ export default function PostLayout({
             </div>
           </header>
           <div className={styles.content}>{children}</div>
-          <ul className={"tag-list"}>
+          <ul className={'tag-list'}>
             {tags.map((it, i) => (
               <li key={i}>
                 <TagButton tag={getTag(it)} />
@@ -86,7 +78,7 @@ export default function PostLayout({
           </ul>
         </article>
         <footer>
-          <div className={"social-list"}>
+          <div className={'social-list'}>
             <SocialList />
           </div>
           <Copyright />
@@ -206,7 +198,7 @@ export default function PostLayout({
             color: #032f62;
           }
 
-          .language-jsx span[class="comment"] {
+          .language-jsx span[class='comment'] {
             color: pink;
           }
 
@@ -220,10 +212,7 @@ export default function PostLayout({
           }
 
           .language-html .token.tag .token.attr-value,
-          .language-html
-            .token.tag
-            .token.attr-value
-            .token.punctuation:not(:first-child) {
+          .language-html .token.tag .token.attr-value .token.punctuation:not(:first-child) {
             color: #032f62;
           }
 
@@ -238,5 +227,5 @@ export default function PostLayout({
         `}
       </style>
     </Layout>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-import config from "../../lib/config";
-import Head from "next/head";
+import config from '../../lib/config'
+import Head from 'next/head'
 
 type Props = {
-  url: string;
-  title?: string;
-  description?: string;
-};
+  url: string
+  title?: string
+  description?: string
+}
 export default function TwitterCardMeta({ url, title, description }: Props) {
   return (
     <Head>
@@ -14,12 +14,12 @@ export default function TwitterCardMeta({ url, title, description }: Props) {
       <meta property="twitter:url" content={config.base_url + url} />
       <meta
         property="twitter:title"
-        content={title ? [title, config.site_title].join(" | ") : ""}
+        content={title ? [title, config.site_title].join(' | ') : ''}
       />
       <meta
         property="twitter:description"
         content={description ? description : config.site_description}
       />
     </Head>
-  );
+  )
 }

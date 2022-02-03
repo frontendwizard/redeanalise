@@ -1,92 +1,78 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import Burger from "./Burger";
-import { useState } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import {
+  Text,
+  Flex,
+  Container,
+  Box,
+  Button,
+  Collapse,
+  VStack,
+  HStack,
+  Input,
+  InputGroup,
+  InputRightElement,
+} from '@chakra-ui/react'
+import { MenuAlt4Icon, XIcon } from '@heroicons/react/outline'
+import Link from 'next/link'
+import { useState } from 'react'
+import { FaFacebook, FaInstagram, FaSearch, FaTwitter } from 'react-icons/fa'
 
 export default function Navigation() {
-  const router = useRouter();
-  const [active, setActive] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const handleClick = () => setIsOpen(!isOpen)
   return (
-    <>
-      <Burger active={active} onClick={() => setActive(!active)} />
-      <div className={"container " + (active ? "active" : "")}>
-        <ul>
-          <li>
-            <Link href="/">
-              <a className={router.pathname === "/" ? "active" : null}>about</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/posts">
-              <a
-                className={
-                  router.pathname.startsWith("/posts") ? "active" : null
-                }
-              >
-                blog
-              </a>
-            </Link>
-          </li>
-        </ul>
-        <style jsx>
-          {`
-            .container {
-              width: 0;
-            }
-            ul {
-              opacity: 0;
-              width: 100%;
-              height: 100vh;
-              text-align: right;
-              list-style: none;
-              margin: 0;
-              padding: 0;
-              position: fixed;
-              top: 0;
-              background-color: #fff;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              z-index: 1;
-              transform: translateY(100%);
-              transition: opacity 200ms;
-            }
-            .active ul {
-              opacity: 1;
-              transform: translateY(0);
-            }
-            li {
-              margin-bottom: 1.75rem;
-              font-size: 2rem;
-              padding: 0 1.5rem 0 0;
-            }
-            li:last-child {
-              margin-bottom: 0;
-            }
-            .active {
-              color: #222;
-            }
-
-            @media (min-width: 769px) {
-              .container {
-                width: 7rem;
-                display: block;
-              }
-              ul {
-                opacity: 1;
-                width: 7rem;
-                top: auto;
-                display: block;
-                transform: translateY(0);
-              }
-              li {
-                font-size: 1rem;
-                padding: 0;
-              }
-            }
-          `}
-        </style>
-      </div>
-    </>
-  );
+    <Box as="nav" bg="bege.500">
+      <Container py="4">
+        <Flex align="center" justify="space-between" w="full">
+          <Text as="span" fontFamily="display" fontWeight="semibold">
+            <Link href="/">Rede Análise | Covid-19</Link>
+          </Text>
+          <Button onClick={handleClick} variant="ghost">
+            {isOpen ? <XIcon className="w-6 h-6" /> : <MenuAlt4Icon className="w-6 h-6" />}
+          </Button>
+        </Flex>
+        <Collapse in={isOpen}>
+          <VStack
+            fontFamily="display"
+            textTransform="uppercase"
+            fontWeight="extrabold"
+            color="azul.500"
+            p="6"
+            fontSize="2xl"
+            spacing="4"
+          >
+            <Link href="#">Início</Link>
+            <Link href="#">Leia</Link>
+            <Link href="#">Covid-19</Link>
+            <Link href="#">Sobre Nós</Link>
+            <Link href="#">Equipe</Link>
+            <Link href="#">Contato</Link>
+            <HStack align="center" spacing="6" py="4">
+              <FaFacebook />
+              <FaTwitter />
+              <FaInstagram />
+            </HStack>
+            <InputGroup>
+              <Input
+                placeholder="Digite sua busca"
+                textAlign="center"
+                _placeholder={{
+                  color: 'azul.500',
+                  fontFamily: 'body',
+                  fontWeight: 'semibold',
+                }}
+                variant="flushed"
+                size="lg"
+                borderColor="azul.500"
+                borderBottomWidth="medium"
+              />
+              <InputRightElement>
+                <FaSearch />
+              </InputRightElement>
+            </InputGroup>
+          </VStack>
+        </Collapse>
+      </Container>
+    </Box>
+  )
 }

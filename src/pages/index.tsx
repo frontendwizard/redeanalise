@@ -1,62 +1,88 @@
-import Layout from "../components/Layout";
-import BasicMeta from "../components/meta/BasicMeta";
-import OpenGraphMeta from "../components/meta/OpenGraphMeta";
-import TwitterCardMeta from "../components/meta/TwitterCardMeta";
-import { SocialList } from "../components/SocialList";
+import { Box } from '@chakra-ui/react'
+import type { GetStaticProps, NextPage } from 'next'
+import { Navbar } from '../components/Navbar'
+import { HighlightArticle } from '../components/HighlightArticle'
+import { ArticlesSection } from '../components/ArticlesSection'
+import { InfoSection } from '../components/InfoSection'
+import { MostReadSection } from '../components/MostReadSection'
+import { LastPostsFromTag } from '../components/LastPostFromTag'
+import { SocialSection } from '../components/SocialSection'
+import { AboutSection } from '../components/AboutSection'
+import { ContactSection } from '../components/ContactSection'
+import { Footer } from '../components/Footer'
+import BasicMeta from '../components/meta/BasicMeta'
+import OpenGraphMeta from '../components/meta/OpenGraphMeta'
+import TwitterCardMeta from '../components/meta/TwitterCardMeta'
+import { getLastPost, listPostContent, PostContent } from '../lib/posts'
 
-export default function Index() {
+interface HomeProps {
+  lastPost: PostContent
+  lastCovidPosts: PostContent[]
+  lastBrazilPosts: PostContent[]
+  lastWorldPosts: PostContent[]
+  mostReadPosts: PostContent[]
+}
+
+const Home: NextPage<HomeProps> = ({
+  lastPost,
+  lastCovidPosts,
+  lastBrazilPosts,
+  lastWorldPosts,
+  mostReadPosts,
+}) => {
   return (
-    <Layout>
-      <BasicMeta url={"/"} />
-      <OpenGraphMeta url={"/"} />
-      <TwitterCardMeta url={"/"} />
-      <div className="container">
-        <div>
-          <h1>
-            Hi, We're Next.js & Netlify<span className="fancy">.</span>
-          </h1>
-          <span className="handle">@nextjs-netlify-blog</span>
-          <h2>A blog template with Next.js and Netlify.</h2>
-          <SocialList />
-        </div>
-      </div>
-      <style jsx>{`
-        .container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: 1 1 auto;
-          padding: 0 1.5rem;
-        }
-        h1 {
-          font-size: 2.5rem;
-          margin: 0;
-          font-weight: 500;
-        }
-        h2 {
-          font-size: 1.75rem;
-          font-weight: 400;
-          line-height: 1.25;
-        }
-        .fancy {
-          color: #15847d;
-        }
-        .handle {
-          display: inline-block;
-          margin-top: 0.275em;
-          color: #9b9b9b;
-          letter-spacing: 0.05em;
-        }
+    <Box>
+      <BasicMeta url={'/'} />
+      <OpenGraphMeta url={'/'} />
+      <TwitterCardMeta url={'/'} />
+      <Box as="main">
+        <Navbar />
+        <HighlightArticle postContent={lastPost} />
+        <ArticlesSection posts={lastCovidPosts} tag="COVID-19" />
+        <InfoSection />
+        <MostReadSection posts={mostReadPosts} />
+        <LastPostsFromTag
+          _section={{
+            title: 'Últimas do Brasil',
+            bg: 'azul.500',
+            textColor: 'branco',
+          }}
+          posts={lastBrazilPosts}
+        />
+        {Boolean(lastWorldPosts.length) ?? (
+          <LastPostsFromTag
+            _section={{
+              title: 'Últimas do mundo',
+              bg: 'violeta.500',
+              textColor: 'branco',
+            }}
+            posts={lastWorldPosts}
+          />
+        )}
+        <SocialSection />
+        <AboutSection />
+        <ContactSection />
+      </Box>
+      <Footer />
+    </Box>
+  )
+}
 
-        @media (min-width: 769px) {
-          h1 {
-            font-size: 3rem;
-          }
-          h2 {
-            font-size: 2.25rem;
-          }
-        }
-      `}</style>
-    </Layout>
-  );
+export default Home
+
+export const getStaticProps: GetStaticProps = async () => {
+  const lastPost = getLastPost()
+  const lastCovidPosts = listPostContent(1, 5, 'covid-19')
+  const lastBrazilPosts = listPostContent(1, 5, 'brasil')
+  const lastWorldPosts = listPostContent(1, 5, 'mundo')
+  const mostReadPosts = listPostContent(1, 5)
+  return {
+    props: {
+      lastPost,
+      lastCovidPosts,
+      lastBrazilPosts,
+      lastWorldPosts,
+      mostReadPosts,
+    },
+  }
 }

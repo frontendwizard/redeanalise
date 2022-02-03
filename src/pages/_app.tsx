@@ -1,9 +1,18 @@
-import "normalize.css";
-import { AppProps } from "next/app";
-// NOTE: Do not move the styles dir to the src.
-// They are used by the Netlify CMS preview feature.
-import "../../public/styles/global.css";
+import '@fontsource/mulish/variable.css'
+import '@fontsource/mulish/variable-italic.css'
+import '@fontsource/krub/700.css'
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+import type { AppProps } from 'next/app'
+import { ChakraProvider } from '@chakra-ui/react'
+
+import theme from '../theme'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  )
 }
+
+export default MyApp
