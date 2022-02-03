@@ -4,10 +4,10 @@ import {
   HStack,
   LinkBox,
   LinkOverlay,
+  Image,
   Stack,
   Text,
 } from '@chakra-ui/react'
-import NextImage from 'next/image'
 import NextLink from 'next/link'
 import { PostContent } from '../lib/posts'
 
@@ -19,14 +19,14 @@ export const BlogPostCard = ({ postContent }: { postContent: PostContent }) => (
     flexShrink={1}
   >
     <Stack spacing={4} pos="relative">
-      <Box h="160px" w="full" pos="relative">
-        <NextImage
-          src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-          layout="fill"
-          objectFit="cover"
-          alt="article's image"
-        />
-      </Box>
+      <Image
+        src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        layout="fill"
+        objectFit="cover"
+        alt="article's image"
+        h="160px"
+        w="full"
+      />
       <Heading size="md">
         <NextLink href="/post" passHref>
           <LinkOverlay>{postContent.title}</LinkOverlay>

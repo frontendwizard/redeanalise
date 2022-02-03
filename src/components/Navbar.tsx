@@ -9,6 +9,7 @@ import {
   HStack,
   Icon,
   IconButton,
+  Image,
   Link,
   LinkBox,
   LinkOverlay,
@@ -16,9 +17,9 @@ import {
   useDisclosure,
   VStack,
 } from '@chakra-ui/react'
-import NextImage from 'next/image'
 import NextLink from 'next/link'
 import { FaFacebookF, FaInstagram, FaSearch, FaTwitter } from 'react-icons/fa'
+import LogoHorizontalNavbar from '../assets/logo-horizontal-para-bege.svg'
 
 export const NAV_ITEMS = [
   { label: 'Início', href: '/' },
@@ -164,11 +165,9 @@ export const Navbar = () => {
                 <NextLink href="/" passHref>
                   <LinkOverlay>
                     <HStack spacing={4} textColor="azul.500">
-                      <NextImage
-                        src="/images/logo-horizontal-para-bege.svg"
+                      <Image
+                        as={LogoHorizontalNavbar}
                         alt="Logo da Rede Análise"
-                        width={100}
-                        height={33}
                       />
                       <Box border="1px" borderColor="azul.500" h={6} />
                       <Text>Covid-19</Text>

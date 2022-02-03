@@ -6,17 +6,19 @@ import {
   HStack,
   Icon,
   IconButton,
+  Image,
   Link,
   SimpleGrid,
   Stack,
   Text,
   useBreakpointValue,
 } from '@chakra-ui/react'
-import NextImage from 'next/image'
 import NextLink from 'next/link'
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
 import { ArrowRightIcon } from './icons/ArrowRightIcon'
 import { NAV_ITEMS } from './Navbar'
+import LogoHorizontalFundoAzul from '../assets/logo-horizontal-para-azul.svg'
+import LogoHorizontalFooter from '../assets/logo-horizontal-footer.svg'
 
 export const Footer = () => (
   <Box as="footer" bg="azul.500" color="bege">
@@ -27,23 +29,18 @@ export const Footer = () => (
             {useBreakpointValue({
               base: (
                 <HStack spacing={{ base: 6, sm: 8 }}>
-                  <NextImage
-                    src="/images/logo-horizontal-para-azul.svg"
+                  <Image
+                    as={LogoHorizontalFundoAzul}
                     alt="Logo da Rede Análise"
-                    width={195}
-                    height={64}
                   />
                   <Box border="1px" borderColor="bege" h={10} />
                   <Text fontSize={{ base: 'md', sm: 'lg' }}>Covid-19</Text>
                 </HStack>
               ),
               md: (
-                <NextImage
-                  src="/images/logo-horizontal-footer.svg"
-                  alt="Logo da Rede Análise"
-                  width={300}
-                  height={115}
-                />
+                <Flex align="center">
+                  <Image as={LogoHorizontalFooter} alt="Logo da Rede Análise" />
+                </Flex>
               ),
             })}
           </Flex>

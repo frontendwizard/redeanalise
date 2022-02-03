@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  target: 'serverless',
   reactStrictMode: true,
   images: {
     domains: ['images.unsplash.com'],
+    loader: 'imgix',
+    path: '',
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.module.rules.push(
