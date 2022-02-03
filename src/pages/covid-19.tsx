@@ -11,7 +11,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import NextImage from 'next/image'
 import NextLink from 'next/link'
 import { EyeIcon } from '../components/icons/EyeIcon'
@@ -20,8 +20,13 @@ import { MostReadItem } from '../components/MostReadItem'
 import { Navbar } from '../components/Navbar'
 import { Section } from '../components/Section'
 import { ZapIcon } from '../components/icons/ZapIcon'
+import { listPostContent, PostContent } from '../lib/posts'
 
-const Covid19: NextPage = () => {
+interface Covid19Props {
+  lastCovidPosts: PostContent[]
+}
+
+const Covid19: NextPage<Covid19Props> = ({ lastCovidPosts }) => {
   return (
     <Flex direction="column" minH="100vh">
       <Navbar />
@@ -55,47 +60,56 @@ const Covid19: NextPage = () => {
       <Stack spacing="4" bg="bege" px={6} py={10}>
         <Heading color="violeta.500">O que é o COVID-19?</Heading>
         <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut risus libero, bibendum eget
-          purus a, rutrum aliquet nunc. Duis vestibulum urna id augue gravida iaculis. Pellentesque
-          nec aliquam nisl. Mauris non commodo justo. Quisque vel ipsum velit. Donec dolor mauris,
-          feugiat vitae hendrerit sed, pretium vel mi. Nullam eros dui, condimentum at dolor ut,
-          blandit ultricies libero. Nulla sapien est, ultrices a sem vitae, porttitor ultricies
-          urna. Ut molestie fermentum gravida. Duis ac auctor ligula. Duis congue ex non diam
-          pulvinar blandit.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut risus
+          libero, bibendum eget purus a, rutrum aliquet nunc. Duis vestibulum
+          urna id augue gravida iaculis. Pellentesque nec aliquam nisl. Mauris
+          non commodo justo. Quisque vel ipsum velit. Donec dolor mauris,
+          feugiat vitae hendrerit sed, pretium vel mi. Nullam eros dui,
+          condimentum at dolor ut, blandit ultricies libero. Nulla sapien est,
+          ultrices a sem vitae, porttitor ultricies urna. Ut molestie fermentum
+          gravida. Duis ac auctor ligula. Duis congue ex non diam pulvinar
+          blandit.
         </Text>
         <Heading color="violeta.500">Como o COVID-19 se espalha?</Heading>
         <Text>
-          Como a gripe, o COVID-19 é transmitido de pessoa para pessoa. A evidência científica
-          confirma que o COVID-19 é espalhado por gotículas. Isso significa que, quando uma pessoa
-          infectada tosse, espirra ou fala, gera gotículas contendo o vírus. Essas gotículas são
-          grandes demais e permanecem no ar por muito tempo, e por isso se depositam rapidamente nas
-          superfícies circundantes. Nessas diversas superfícies, o COVID-19 permanece ativo de
-          maneiras diferentes. Por isso é importante a higienização das mãos e das superfícies o
-          mais constantemente possível.
+          Como a gripe, o COVID-19 é transmitido de pessoa para pessoa. A
+          evidência científica confirma que o COVID-19 é espalhado por
+          gotículas. Isso significa que, quando uma pessoa infectada tosse,
+          espirra ou fala, gera gotículas contendo o vírus. Essas gotículas são
+          grandes demais e permanecem no ar por muito tempo, e por isso se
+          depositam rapidamente nas superfícies circundantes. Nessas diversas
+          superfícies, o COVID-19 permanece ativo de maneiras diferentes. Por
+          isso é importante a higienização das mãos e das superfícies o mais
+          constantemente possível.
         </Text>
       </Stack>
       <Stack spacing="4" bg="violeta.500" p={6} color="bege">
         <Heading>Abordagens terapêuticas</Heading>
         <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut risus libero, bibendum eget
-          purus a, rutrum aliquet nunc. Duis vestibulum urna id augue gravida iaculis.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut risus
+          libero, bibendum eget purus a, rutrum aliquet nunc. Duis vestibulum
+          urna id augue gravida iaculis.
         </Text>
         <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut risus libero, bibendum eget
-          purus a, rutrum aliquet nunc. Duis vestibulum urna id augue gravida iaculis. Pellentesque
-          nec aliquam nisl. Mauris non commodo justo. Quisque vel ipsum velit. Donec dolor mauris,
-          feugiat vitae hendrerit sed, pretium vel mi. Nullam eros dui, condimentum at dolor ut,
-          blandit ultricies libero. Nulla sapien est, ultrices a sem vitae, porttitor ultricies
-          urna. Ut molestie fermentum gravida. Duis ac auctor ligula. Duis congue ex non diam
-          pulvinar blandit.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut risus
+          libero, bibendum eget purus a, rutrum aliquet nunc. Duis vestibulum
+          urna id augue gravida iaculis. Pellentesque nec aliquam nisl. Mauris
+          non commodo justo. Quisque vel ipsum velit. Donec dolor mauris,
+          feugiat vitae hendrerit sed, pretium vel mi. Nullam eros dui,
+          condimentum at dolor ut, blandit ultricies libero. Nulla sapien est,
+          ultrices a sem vitae, porttitor ultricies urna. Ut molestie fermentum
+          gravida. Duis ac auctor ligula. Duis congue ex non diam pulvinar
+          blandit.
         </Text>
         <OrderedList>
           <ListItem>
-            Na tabela abaixo, pode ser observada a descrição de algumas abordagens terapêuticas para
-            o enfrentamento da COVID-19. É importante ressaltar que muitos desses tratamentos estão
-            passando por diferentes fases de ensaios clínicos com humanos, enquanto que outros
-            obtiveram observações em estudos com células ou em modelos animais, necessitando de
-            maior comprovação clínica quanto a eficácia e dose de segurança.{' '}
+            Na tabela abaixo, pode ser observada a descrição de algumas
+            abordagens terapêuticas para o enfrentamento da COVID-19. É
+            importante ressaltar que muitos desses tratamentos estão passando
+            por diferentes fases de ensaios clínicos com humanos, enquanto que
+            outros obtiveram observações em estudos com células ou em modelos
+            animais, necessitando de maior comprovação clínica quanto a eficácia
+            e dose de segurança.{' '}
             <NextLink
               href="https://www.who.int/blueprint/priority-diseases/key-action/Table_of_therapeutics_Appendix_17022020.pdf"
               passHref
@@ -104,31 +118,39 @@ const Covid19: NextPage = () => {
             </NextLink>
           </ListItem>
           <ListItem>
-            Handbook of COVID-19 Prevention and Treatment (escrito pela equipe chinesa, em inglês)
+            Handbook of COVID-19 Prevention and Treatment (escrito pela equipe
+            chinesa, em inglês)
           </ListItem>
         </OrderedList>
       </Stack>
       <Stack spacing="4" bg="bege" p={6}>
         <Heading>Dados sobre o COVID-19</Heading>
         <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut risus libero, bibendum eget
-          purus a, rutrum aliquet nunc. Duis vestibulum urna id augue gravida iaculis. Pellentesque
-          nec aliquam nisl. Mauris non commodo justo. Quisque vel ipsum velit. Donec dolor mauris,
-          feugiat vitae hendrerit sed, pretium vel mi. Nullam eros dui, condimentum at dolor ut,
-          blandit ultricies libero. Nulla sapien est, ultrices a sem vitae, porttitor ultricies
-          urna. Ut molestie fermentum gravida. Duis ac auctor ligula. Duis congue ex non diam
-          pulvinar blandit.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut risus
+          libero, bibendum eget purus a, rutrum aliquet nunc. Duis vestibulum
+          urna id augue gravida iaculis. Pellentesque nec aliquam nisl. Mauris
+          non commodo justo. Quisque vel ipsum velit. Donec dolor mauris,
+          feugiat vitae hendrerit sed, pretium vel mi. Nullam eros dui,
+          condimentum at dolor ut, blandit ultricies libero. Nulla sapien est,
+          ultrices a sem vitae, porttitor ultricies urna. Ut molestie fermentum
+          gravida. Duis ac auctor ligula. Duis congue ex non diam pulvinar
+          blandit.
         </Text>
       </Stack>
       <Section title="Leia mais sobre o assunto" bg="laranja.500">
         <VStack>
-          <MostReadItem />
-          <MostReadItem />
-          <MostReadItem />
-          <MostReadItem />
+          {lastCovidPosts.map((postContent) => (
+            <MostReadItem key={postContent.slug} postContent={postContent} />
+          ))}
         </VStack>
         <Flex justifyContent="center">
-          <Button variant="outline" colorScheme="preto" borderWidth={2} px={8} size="sm">
+          <Button
+            variant="outline"
+            colorScheme="preto"
+            borderWidth={2}
+            px={8}
+            size="sm"
+          >
             VER MAIS
           </Button>
         </Flex>
@@ -136,6 +158,15 @@ const Covid19: NextPage = () => {
       <Footer />
     </Flex>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const lastCovidPosts = listPostContent(1, 5, 'covid-19')
+  return {
+    props: {
+      lastCovidPosts,
+    },
+  }
 }
 
 export default Covid19
