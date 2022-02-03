@@ -34,7 +34,11 @@ export function fetchPostContent(): PostContent[] {
       // Use gray-matter to parse the post metadata section
       const matterResult = matter(fileContents, {
         engines: {
-          yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
+          yaml: (s) =>
+            yaml.load(s, { schema: yaml.JSON_SCHEMA }) as Record<
+              string,
+              unknown
+            >,
         },
       })
       const matterData = matterResult.data as {
@@ -45,6 +49,7 @@ export function fetchPostContent(): PostContent[] {
         fullPath: string
         authors: string[]
         reviewers: string[]
+        excerpt: string
       }
       matterData.fullPath = fullPath
 
